@@ -1,5 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'war'
+apply plugin: 'eclipse'
 apply plugin: 'eclipse-wtp'
 apply plugin: 'jetty'
 
@@ -43,3 +44,13 @@ eclipse {
   }
 }
 
+//Attach sources and javadoc to eclipse.
+//If dependencies' sources and javadoc not downloaded,
+//please remove your dependencies from local repository(usually ${HOME}/.m2),
+//then refresh your gradle project or execute the cmd: gradle build --refresh-dependencies.
+eclipse {
+  classpath {
+    downloadSources = true
+    downloadJavadoc = true
+  }
+}
